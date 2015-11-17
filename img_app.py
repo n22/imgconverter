@@ -38,7 +38,7 @@ def toPNG():
 	after = os.path.getsize(im_new_dir)
 	rate = compressionRate(before,after)
 	labelinfo= StringVar()
-	tkMessageBox.showinfo("Compression Rate",'Uncompressed Size: '+ str(before)+'\nCompresed Size'+str(after)+'\nCompression Rate:'+str(rate))
+	tkMessageBox.showinfo("Compression Rate",'Uncompressed Size: '+ str(before)+'\nCompresed Size: '+str(after)+'\nCompression Rate:'+str(rate)+'%')
 ## convert to GIF
 def toGIF():
 	im_dir= lokasi.get()
