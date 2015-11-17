@@ -4,6 +4,7 @@ from tkFileDialog   import askopenfilename
 from tkFileDialog import *
 from PIL import Image
 import os
+## get image dir
 def chooseImg():
 	name = askopenfilename()
 	#status = "gambar dikonversi menjadi" + lokasi.get()
@@ -11,10 +12,12 @@ def chooseImg():
 	lokasi.delete(0,END)
 	lokasi.insert(0,name)
 	return
+## get new dir
 def toNewDir():
 	location = asksaveasfilename()
 	lokasiNewDir.delete(0,END)
 	lokasiNewDir.insert(0,location)
+## convert to JPEG
 def toJPG():
 	im_dir= lokasi.get()
 	im_new_dir = lokasiNewDir.get()+".jpg"
@@ -25,6 +28,7 @@ def toJPG():
 	rate = compressionRate(before,after)
 	labelinfo= StringVar()
 	tkMessageBox.showinfo("Compression Rate",'Uncompressed Size: '+ str(before)+'\nCompresed Size'+str(after)+'\nCompression Rate:'+str(rate))
+## convert to PNG
 def toPNG():
 	im_dir= lokasi.get()
 	im_new_dir = lokasiNewDir.get()+".png"
@@ -35,6 +39,7 @@ def toPNG():
 	rate = compressionRate(before,after)
 	labelinfo= StringVar()
 	tkMessageBox.showinfo("Compression Rate",'Uncompressed Size: '+ str(before)+'\nCompresed Size'+str(after)+'\nCompression Rate:'+str(rate))
+## convert to GIF
 def toGIF():
 	im_dir= lokasi.get()
 	im_new_dir = lokasiNewDir.get()+".gif"
@@ -45,10 +50,11 @@ def toGIF():
 	rate = compressionRate(before,after)
 	labelinfo= StringVar()
 	tkMessageBox.showinfo("Compression Rate",'Uncompressed Size: '+ str(before)+'\nCompresed Size'+str(after)+'\nCompression Rate:'+str(rate))
+## Count Compression rate
 def compressionRate(before,after):
 	compressed_size = after
 	uncompressed_size = before
-	compression_rate = (uncompressed_size/compressed_size)*100
+	compression_rate = ((uncompressed_size/compressed_size)*100)/100
 	return compression_rate
 app = Tk()
 app.title("Image Converter")
@@ -60,7 +66,7 @@ label1 = Label(app,textvariable=judul_app, height=3)
 label1.pack()
 ### buat menampilkan NRP ####
 labelText= StringVar()
-labelText.set("Faris Makarim:\t 5112100154\nNarendra Hanif:\t 5112100160\nAditya Putra Ferza:\t5112100xxx")
+labelText.set("Faris Makarim:\t 5112100154\nNarendra Hanif:\t 5112100160\nAditya Putra Ferza:\t5112100108")
 label1 = Label(app,textvariable=labelText, height=4)
 label1.pack()
 ## tombol pilih nama gambar##
